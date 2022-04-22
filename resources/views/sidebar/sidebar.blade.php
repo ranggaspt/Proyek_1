@@ -24,7 +24,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -62,10 +61,10 @@
             <a href="#"><span class="bi bi-shield-shaded mr-3"></span> Teledokter</a>
           </li>
           <li>
-            <a href="#"><span class="bi bi-people-fill mr-3"></span> Pengguna</a>
+            <a href="{{ route('pengguna') }}"><span class="bi bi-people-fill mr-3"></span> Pengguna</a>
           </li>
           <li>
-            <a href="#"><span class="bi bi-info-circle-fill mr-3"></span> Tentang</a>
+            <a href="{{ route('tentang') }}"><span class="bi bi-info-circle-fill mr-3"></span> Tentang</a>
           </li>
         </ul>
 
