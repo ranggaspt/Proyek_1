@@ -18,6 +18,7 @@ class CreateMembersTable extends Migration
             $table->string('nama');
             $table->enum('jk',['L','P']);
             $table->bigInteger('telpon');
+            $table->string('foto');
             $table->timestamps();
         });
     }

@@ -15,22 +15,19 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="table-responsive">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>EDIT TENTANG</h2>
-                        </div>
-                    </div>
-                </div>
+<br>
+<div class="container ">
+        <div class="table-responsive card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">EDIT TENTANG</h3>
+            </div>
+            <div class="card-body">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-8">
                             <div class="card">
-                                <div class="card-body">
-                                    <form action="/updatetentang/{{$data->id}}" method="post"
+                            <div class="card-body">
+                            <form action="/updatetentang/{{$data->id}}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
                                         <div class="mb-3">
@@ -48,7 +45,6 @@
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

@@ -18,7 +18,12 @@ class MemberController extends Controller
     }
 
     public function insertpengguna(Request $request){
-        Member::create($request->all());
+       $data = Member::create($request->all());
+       if($request->hasFile('foto')){
+           $request->file('foto')->move('fotomember/', $request->file('foto')->getClientOriginalName()); 
+           $data->foto = $request->file('foto')->getClientOriginalName();
+           $data->save();
+       }
         return redirect()-> route('pengguna')->with('succes','Data Berhasil Di Tambahkan!');
     }
     
@@ -30,6 +35,11 @@ class MemberController extends Controller
     public function updatepengguna(Request $request, $id){
         $data = Member::find($id);
         $data->update($request->all());
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('fotomember/', $request->file('foto')->getClientOriginalName()); 
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
 
         return redirect()-> route('pengguna')->with('succes','Data Berhasil Di Ubah!');
     }

@@ -8173,6 +8173,18 @@ h1, h2, h3, h4, h5,
   background-repeat: no-repeat;
   background-position: center center; }
 
+  .forh{
+    color: #fff;
+  }
+
+.img-radius {
+    border-radius: 100px;
+}
+
+.f-w-600 {
+    font-weight: 600;
+}
+
 .wrapper {
   width: 100%; }
 
@@ -8249,14 +8261,14 @@ h1, h2, h3, h4, h5,
       #sidebar.active {
         margin-left: 0; }
       #sidebar .custom-menu {
-        margin-right: -60px !important;
+        margin-right: -45px !important;
         top: 10px !important; } }
   #sidebar .custom-menu {
     display: inline-block;
     position: absolute;
-    top: 20px;
+    top: 10px;
     right: 0;
-    margin-right: -35px;
+    margin-right: -45px;
     -webkit-transition: 0.3s;
     -o-transition: 0.3s;
     transition: 0.3s; }

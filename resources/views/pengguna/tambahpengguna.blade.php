@@ -14,27 +14,25 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="table-responsive">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>TAMBAH PENGGUNA</h2>
-                        </div>
-                    </div>
-                </div>
+<br>
+<div class="container ">
+        <div class="table-responsive card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">TAMBAH PENGGUNA</h3>
+            </div>
+            <div class="card-body">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-8">
                             <div class="card">
-                                <div class="card-body">
-                                    <form action="/insertpengguna" method="post" enctype="multipart/form-data">
+                            <div class="card-body">
+                            <form action="/insertpengguna" method="post" enctype="multipart/form-data">
+
                                         @csrf
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
                                             <input type="text" name="nama" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp">
+                                                aria-describedby="emailHelp" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
@@ -47,22 +45,25 @@
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">No Telpon</label>
                                             <input type="number" name="telpon" class="form-control"
-                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                id="exampleInputEmail1" aria-describedby="emailHelp" required>
                                         </div>
+                                        <div class="mb-3">
+                                            <label for="exampleInputEmail1" class="form-label">Masukan Foto</label>
+                                            <input type="file" name="foto" class="form-control"
+                                                aria-describedby="emailHelp">
+                                        </div required>
 
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                         <button type="reset" class="btn btn-danger">Reset</button>
                                     </form>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

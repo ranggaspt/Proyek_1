@@ -1,3 +1,9 @@
+@extends('sidebar.sidebar')
+@extends('layouts.app')
+
+
+@section('dashboard')
+
 <!doctype html>
 <html lang="en">
 
@@ -7,48 +13,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
     <link href="{{ asset('css/kelola.css') }}" rel="stylesheet">
 
     <title>Kelola data pengguna</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="table-responsive">
-            <div class="table-wrapper">
-                <div class="table-title">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2>PENGGUNA</h2>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="/tambahpengguna" class="btn btn-primary"><span>Tambah</span></a>
-                        </div>
+<div class="container-fluid">
+        <div class="card shadow mb-4 ">
+            <div class="card-header py-3 ">
+                <div class="row">
+                    <div class=" col-sm-6 m-0 h2">PENGGUNA</div>
+                    <div class="col-sm-6">
+                    <a href="/tambahpengguna" class="r btn btn-primary tambah"><span>Tambah</span></a>
                     </div>
                 </div>
-                @if ($message = Session::get('succes'))
-                <div class="alert alert-success" role="alert">
-                    {{$message}}
-                </div>
-                @endif
-                <table class="table table-striped table-hover"><br>
-                    <div>
-                        <h5>Tabel Pengguna</h5>
-                    </div>
-                    <thead>
+            </div>
+            @if ($message = Session::get('succes'))
+            <div class="alert alert-success" role="alert">
+                {{$message}}
+            </div>
+            @endif
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover" id="dataTable" width="100%" cellspacing="0">
+                        <div>
+                            <h5 class="font-weight-bold">Tabel Teledokter</h5>
+                        </div>
+                        <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
+                            <th>Foto</th>
                             <th>Jenis Kelamin</th>
                             <th>No Telpon</th>
                             <th>Waktu</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    <tbody>
                     <tbody>
                         @php
                         $no = 1;
@@ -57,6 +59,9 @@
                         <tr>
                             <th scope="row">{{ $no++ }}</th>
                             <td>{{ $row->nama }}</td>
+                            <td>
+                                <img src="{{ asset('fotomember/'.$row->foto )}}" alt="" style="width: 50px;">
+                            </td>
                             <td>{{ $row->jk }}</td>
                             <td>0{{ $row->telpon }}</td>
                             <td>{{ $row->created_at->format('d-m-Y') }}</td>
@@ -67,11 +72,13 @@
                         </tr>
                         @endforeach
                     </tbody>
-                    </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
 </body>
 
 </html>
+
+@endsection

@@ -49,25 +49,29 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            <!--@if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif
+                            @endif-->
                         @else
-                        <li class="nav-item dropdown">
-              
+                        <a type="buttom" href="{{ route('logout') }}" class="tbtn btn btn-danger tambah fa fa-sign-out mr-3 "  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><span> Keluar</span></a>
+                                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none ">
+                                        @csrf
+                                    </form>
+                        
+                        
+                        <!--<li class="nav-item dropdown">
                                     <a class="dropdown-item fa fa-sign-out mr-3" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                               
-                            </li>
+                            </li>-->
                         @endguest
                     </ul>
                 </div>

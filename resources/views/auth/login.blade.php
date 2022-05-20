@@ -33,13 +33,7 @@
                 </button>
             </div>
 
-            <p class="login-register-text">
-            @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif
-            </p>
+            
         </form>
     </div>
 </div>
