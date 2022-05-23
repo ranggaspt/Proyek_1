@@ -58,28 +58,28 @@
             
             <ul class="list-unstyled components mb-5">
 
-                <li>
+                <li class="{{ request()->is('home') ? 'active' : ''}}">
                     <a href="{{ route('home') }}"><span class="bi bi-grid-1x2-fill mr-3"></span> Dashboard</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/profile') ? 'active' : ''}}">
                     <a href="{{ route('profile') }}"><span class="bi bi-person-circle mr-3"></span> Profile</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/postingan') ? 'active' : ''}}">
                     <a href="{{ route('postingan') }}"><span class="bi bi-collection-fill mr-3"></span> Postingan</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/edukasi') ? 'active' : ''}}">
                     <a href="{{ route('edukasi') }}"><span class="bi bi-book-fill mr-3"></span> Edukasi</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/diskusi') ? 'active' : ''}}">
                     <a href="{{ route('diskusi') }}"><span class="bi bi-chat-left-text-fill mr-3"></span> Diskusi</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/teledokter') ? 'active' : ''}}">
                     <a href="{{ route('teledokter') }}"><span class="bi bi-shield-shaded mr-3"></span> Teledokter</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/pengguna') ? 'active' : ''}}">
                     <a href="{{ route('pengguna') }}"><span class="bi bi-people-fill mr-3"></span> Pengguna</a>
                 </li>
-                <li>
+                <li class="{{ request()->is('home/tentang') ? 'active' : ''}}">
                     <a href="{{ route('tentang') }}"><span class="bi bi-info-circle-fill mr-3"></span> Tentang</a>
                 </li>
             </ul>

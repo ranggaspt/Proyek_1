@@ -35,8 +35,8 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
-                                            <input type="text" name="deskripsi" class="form-control"
-                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <textarea name="deskripsi" class="form-control" id="editor" cols="30" rows="10"
+                                                aria-describedby="emailHelp" required></textarea>
                                         </div>
 
                                         <button type="submit" class="btn btn-primary">Submit</button>

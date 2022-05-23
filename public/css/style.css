@@ -8202,7 +8202,7 @@ h1, h2, h3, h4, h5,
   #sidebar.active {
     margin-left: -300px; }
     #sidebar.active .custom-menu {
-      margin-right: -50px; }
+      margin-right: -45px; }
     #sidebar.active .btn.btn-primary:before {
       content: "\f053";
       font-family: "FontAwesome";
