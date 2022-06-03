@@ -16,9 +16,10 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id('id');
             $table->string('nama');
+            $table->string('email')->unique();
+            $table->string('password');
             $table->enum('jk',['L','P']);
             $table->bigInteger('telpon');
-            $table->string('foto');
             $table->timestamps();
         });
     }

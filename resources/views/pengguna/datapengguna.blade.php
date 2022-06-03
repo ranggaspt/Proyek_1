@@ -12,6 +12,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/kelola.css') }}" rel="stylesheet">
 
@@ -25,7 +28,7 @@
                 <div class="row">
                     <div class=" col-sm-6 m-0 h2">PENGGUNA</div>
                     <div class="col-sm-6">
-                    <a href="/tambahpengguna" class="r btn btn-primary tambah"><span>Tambah</span></a>
+                    <!--<a href="/tambahpengguna" class="r btn btn-primary tambah"><span>Tambah</span></a>-->
                     </div>
                 </div>
             </div>
@@ -44,7 +47,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>
-                            <th>Foto</th>
+                            <th>Email</th>
                             <th>Jenis Kelamin</th>
                             <th>No Telpon</th>
                             <th>Waktu</th>
@@ -59,15 +62,13 @@
                         <tr>
                             <th scope="row">{{ $no++ }}</th>
                             <td>{{ $row->nama }}</td>
-                            <td>
-                                <img src="{{ asset('fotomember/'.$row->foto )}}" alt="" style="width: 50px;">
-                            </td>
+                            <td>{{ $row->email }}</td>
                             <td>{{ $row->jk }}</td>
                             <td>0{{ $row->telpon }}</td>
                             <td>{{ $row->created_at->format('d-m-Y') }}</td>
                             <td>
-                                <a href="/tampilkanpengguna/{{ $row->id }}" class="tbtn btn btn-info">Edit</a>
-                                <a href="/deletepengguna/{{ $row->id }}" type="button" class="tbtn btn btn-danger">Hapus</a>
+                                <!--<a href="/tampilkanpengguna/{{ $row->id }}" class="tbtn btn btn-info">Edit</a>-->
+                                <a href="#" type="button" data-id="{{ $row->id }}" data-nama="{{ $row->email }}" class="tbtn btn btn-danger delete">Hapus</a>
                             </td>
                         </tr>
                         @endforeach
@@ -78,6 +79,30 @@
         </div>
     </div>
 </body>
+
+<script>
+    $('.delete').click(function(){
+        var penggunaid = $(this).attr('data-id');
+        var email = $(this).attr('data-nama');
+        swal({
+            title: "Yakin?",
+            text: "Anda akan menghapus pengguna '"+email+"' ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/deletepengguna/"+penggunaid+""
+                swal("Data berhasil di hapus!", {
+                    icon: "success",
+                });
+            } else {
+                swal("Data tidak jadi di hapus");
+            }
+        });
+    });
+</script>
 
 </html>
 

@@ -12,6 +12,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/kelola.css') }}" rel="stylesheet">
 
@@ -65,7 +68,8 @@
                             <td>{{ $row->created_at->format('d-m-Y') }}</td>
                             <td>
                                 <a href="/tampilkanpostingan/{{ $row->id }}" class="tbtn btn btn-info">Edit</a>
-                                <a href="/deletepostingan/{{ $row->id }}" type="button" class="tbtn btn btn-danger">Hapus</a>
+                                <a href="#" type="button" data-id="{{ $row->id }}" data-nama="{{ $row->judul }}"
+                                        class="tbtn btn btn-danger delete">Hapus</a>
                             </td>
                         </tr>
                         @endforeach
@@ -76,6 +80,30 @@
         </div>
     </div>
 </body>
+
+<script>
+    $('.delete').click(function(){
+        var postid = $(this).attr('data-id');
+        var judul = $(this).attr('data-nama');
+        swal({
+            title: "Yakin?",
+            text: "Anda akan menghapus postingan '"+judul+"' ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/deletepostingan/"+postid+""
+                swal("Data berhasil di hapus!", {
+                    icon: "success",
+                });
+            } else {
+                swal("Data tidak jadi di hapus");
+            }
+        });
+    });
+</script>
 
 </html>
 @endsection

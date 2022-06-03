@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class=" col-sm-6 m-0 h2">TENTANG</div>
                     <div class="col-sm-6">
-                        <a href="/tambahtentang" class="r btn btn-primary tambah"><span>Tambah</span></a>
+                        <!-- <a href="/tambahtentang" class="r btn btn-primary tambah"><span>Tambah</span></a> -->
                     </div>
                 </div>
             </div>
@@ -62,8 +62,9 @@
                                 <td>{{ $row->deskripsi }}</td>
                                 <td>
                                     <a href="/tampilkantentang/{{ $row->id }}" class="tbtn btn btn-info">Edit</a>
-                                    <a href="/deletetentang/{{ $row->id }}" type="button"
-                                        class="tbtn btn btn-danger">Hapus</a>
+                                    <!-- <a href="/deletetentang/{{ $row->id }}" type="button"
+                                        class="tbtn btn btn-danger">Hapus</a> -->
+                                    
                                 </td>
                             </tr>
                             @endforeach

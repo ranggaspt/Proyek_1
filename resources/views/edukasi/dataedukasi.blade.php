@@ -12,6 +12,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/kelola.css') }}" rel="stylesheet">
 
@@ -60,7 +63,7 @@
                             <td>{{ $row->deskripsi }}</td>
                             <td>
                                 <a href="/tampilkanedukasi/{{ $row->id }}" class="tbtn btn btn-info">Edit</a>
-                                <a href="/deleteedukasi/{{ $row->id }}" type="button" class="tbtn btn btn-danger">Hapus</a>
+                                <a href="#" type="button" data-id="{{ $row->id }}" data-nama="{{ $row->judul }}" class="tbtn btn btn-danger delete">Hapus</a>
                             </td>
                         </tr>
                         @endforeach
@@ -72,6 +75,30 @@
         </div>
     </div>
 </body>
+
+<script>
+    $('.delete').click(function(){
+        var edukasiid = $(this).attr('data-id');
+        var judul = $(this).attr('data-nama');
+        swal({
+            title: "Yakin?",
+            text: "Anda akan menghapus edukasi '"+judul+"' ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+        .then((willDelete) => {
+            if (willDelete) {
+                window.location = "/deleteedukasi/"+edukasiid+""
+                swal("Data berhasil di hapus!", {
+                    icon: "success",
+                });
+            } else {
+                swal("Data tidak jadi di hapus");
+            }
+        });
+    });
+</script>
 
 </html>
 @endsection

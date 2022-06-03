@@ -11,4 +11,7 @@ class member extends Model
 
     protected $guarded = [];
     protected $dates = ['created_at'];
+    protected $hidden = [
+        'password'
+    ];
 }
